@@ -1,0 +1,71 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<section class="login-form">
+ <input type="hidden" id="status" value="<%= request.getAttribute("status")%>">
+   <div class="login-Container">
+        <div class="content">
+        <div class="content-header">
+            <h4>
+                Welcome back!
+            </h4><br>
+            <p>To keep connected with us please login with your personal information.</p><br>
+            <button type="submit"><a href="./Index.jsp">Login</a></button>
+        </div>
+    </div>
+    <div class="register-content">
+        <form  class="form" action="register" method = "post" >
+            <h4>Register</h4> <hr> 
+            <div class="container">
+ 
+                <label >First Name</label><br>
+                <input type="text" placeholder="First name" name="fname" required><br>
+                <label >Last Name</label><br>
+                <input type="text" placeholder="Last name" name="lname" required><br>
+                <label >Email</label><br>
+                <input type="text" placeholder="Enter your email" name="Email" required><br>
+                <label >Password</label><br>
+                <input type="password" placeholder="Enter your password" name="psw" required><br>
+                <label >Confirm Password</label><br>
+                <input type="password" placeholder="Confirm password" name="cpsw" required><br>
+            </div>
+            <button type="submit">Register</button>
+        </form>
+    </div>
+   </div>
+</section>
+<script type="text/javascript">
+var status = document.getElementById("status").value;
+if(status =="success") {
+alert("Registered successfully!");
+}
+if(status =="invalidEmail") {
+	alert("Please Enter correct username Email");
+	}
+if(status =="invalidpsw") {
+	alert("Invalid Password");
+	}
+if(status =="invalidFname") {
+	alert("Please enter your first name");
+	}
+if(status =="invalidLname") {
+	alert("Please enter your last name");
+	}
+if(status == "invalidpswConfig"){
+	alert("The password do not match.");
+}
+
+</script>
+</body>
+</html>
